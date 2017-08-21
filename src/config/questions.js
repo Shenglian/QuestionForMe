@@ -6,6 +6,10 @@ const questions = [
         name: 'How do I store an array in LocalStorage?',
         answerIndex: 1 
       },
+      {
+        name: 'How to convert second to HHMMSS ?',
+        answerIndex: 2
+      },
     ]
   },
   {
