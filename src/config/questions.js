@@ -32,6 +32,14 @@ const questions = [
         name: 'How do you get a timestamp in JavaScript?',
         answerIndex: 7
       },
+      {
+        name: 'To redirect to another page',
+        answerIndex: 8
+      },
+      {
+        name: 'JavaScript 的 encodeURIComponent() 會將字串轉換成 UTF-8 編碼',
+        answerIndex: 9
+      }
     ]
   },
   {
