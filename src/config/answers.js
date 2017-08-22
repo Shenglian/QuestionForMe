@@ -48,7 +48,43 @@ const answers = [
           const average = Math.floor(sum / nums.length)
           return numbers[average]
         }`
-      }
+      },
+      {
+        name: '',
+        answersIndex: 4,
+        link: 'https://stackoverflow.com/questions/10931288/how-to-add-subtract-dates-with-javascript',
+        code: '',
+      },
+      {
+        name: '',
+        answersIndex: 5,
+        link: 'https://stackoverflow.com/questions/10931288/how-to-add-subtract-dates-with-javascript',
+        code: '',
+      },
+      {
+        name: '',
+        answersIndex: 6,
+        link: 'https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript',
+        code: '',
+      },
+      {
+        name: '',
+        answersIndex: 7,
+        link: 'https://stackoverflow.com/questions/221294/how-do-you-get-a-timestamp-in-javascript',
+        code: '+new Date()',
+      },
+      {
+        name: '',
+        answersIndex: 8,
+        link: 'https://stackoverflow.com/questions/4744751/how-do-i-redirect-with-javascript',
+        code: 'window.location = "http://www.yoururl.com";',
+      },
+      {
+        name: '',
+        answersIndex: 9,
+        link: 'https://blog.longwin.com.tw/2010/01/javascript-encodeuri-component-utf-8-2010/',
+        code: '',
+      },
     ]
   }
 ]
