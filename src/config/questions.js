@@ -39,7 +39,15 @@ const questions = [
       {
         name: 'JavaScript 的 encodeURIComponent() 會將字串轉換成 UTF-8 編碼',
         answerIndex: 9
-      }
+      },
+      {
+        name: 'How to set config for window.open ?',
+        answerIndex: 10
+      },
+      {
+        name: 'if array is empty?',
+        answerIndex: 11
+      },
     ]
   },
   {

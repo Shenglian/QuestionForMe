@@ -85,6 +85,18 @@ const answers = [
         link: 'https://blog.longwin.com.tw/2010/01/javascript-encodeuri-component-utf-8-2010/',
         code: '',
       },
+      {
+        name: '',
+        answersIndex: 10,
+        link: '',
+        code: 'window.open("windowUrl", "windowName", "windowConfig")',
+      },
+      {
+        name: '',
+        answersIndex: 11,
+        link: '',
+        code: 'arr.length === 0',
+      },
     ]
   }
 ]
