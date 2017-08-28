@@ -97,6 +97,49 @@ const answers = [
         link: '',
         code: 'arr.length === 0',
       },
+      {
+        name: '',
+        answerIndex: 12,
+        link: '',
+        code: '',
+      },
+      {
+        name: '',
+        answerIndex: 13,
+        link: '',
+        code: '',
+      },
+      {
+        name: '',
+        answerIndex: 14,
+        link: '',
+        code: '',
+      },
+      {
+        name: '',
+        answerIndex: 15,
+        link: 'https://stackoverflow.com/questions/43626156/how-to-convert-an-array-of-objects-to-object-with-key-value-pairs',
+        code: `var arr = [{"name1": 'value1',"name3": 'value3'},{"name2": 'value2'}];
+        var obj = Object.assign({}, ...arr);`,
+      },
+      {
+        name: '',
+        answerIndex: 16,
+        link: '',
+        code: 'Array.join("")'
+      },
+      {
+        name: '',
+        answerIndex: 17,
+        link: '',
+        code: 'Array.split("")'
+      },
+      {
+        name: '',
+        answerIndex: 18,
+        link: '',
+        code: '+string'
+      }
     ]
   }
 ]

@@ -48,6 +48,34 @@ const questions = [
         name: 'if array is empty?',
         answerIndex: 11
       },
+      {
+        name: 'fizzbuzz',
+        answerIndex: 12,
+      },
+      {
+        name: 'harmlessRansomNote',
+        answerIndex: 13,
+      },
+      {
+        name: 'isPalindrome',
+        answerIndex: 14,
+      },
+      {
+        name: 'Array convert to Object',
+        answerIndex: 15,
+      },
+      {
+        name: 'Array convert to String',
+        answerIndex: 16,
+      },
+      {
+        name: 'String convert to Array',
+        answerIndex: 17,
+      },
+      {
+        name: 'String convert to Number',
+        answerIndex: 18,
+      },
     ]
   },
   {
