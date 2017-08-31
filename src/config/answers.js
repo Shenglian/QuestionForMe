@@ -76,8 +76,8 @@ const answers = [
       {
         name: '',
         answersIndex: 8,
-        link: 'https://stackoverflow.com/questions/4744751/how-do-i-redirect-with-javascript',
-        code: 'window.location = "http://www.yoururl.com";',
+        link: 'https://stackoverflow.com/questions/4744751/how-do-i-redirect-with-javascript, https://stackoverflow.com/questions/503093/how-to-redirect-to-another-webpage?page=1&tab=votes#tab-top',
+        code: 'window.location.href = "http://www.yoururl.com"; window.location.replace = "http://www.yoururl.com"',
       },
       {
         name: '',
@@ -139,6 +139,12 @@ const answers = [
         answerIndex: 18,
         link: '',
         code: '+string'
+      },
+      {
+        name: '',
+        answerIndex: 19,
+        link: '',
+        code: 'array.length'
       }
     ]
   }

@@ -76,6 +76,10 @@ const questions = [
         name: 'String convert to Number',
         answerIndex: 18,
       },
+      {
+        name: 'how to judge array is empty?',
+        answerIndex: 19,
+      },
     ]
   },
   {
