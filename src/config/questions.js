@@ -77,8 +77,12 @@ const questions = [
         answerIndex: 18,
       },
       {
-        name: 'how to judge array is empty?',
+        name: 'how to clear array ?',
         answerIndex: 19,
+      },
+      {
+        name: 'How do I test for an empty JavaScript object?',
+        answerIndex: 20,
       },
     ]
   },

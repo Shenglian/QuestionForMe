@@ -119,8 +119,13 @@ const answers = [
         name: '',
         answerIndex: 15,
         link: 'https://stackoverflow.com/questions/43626156/how-to-convert-an-array-of-objects-to-object-with-key-value-pairs',
+        link2: 'https://stackoverflow.com/questions/4215737/convert-array-to-object',
         code: `var arr = [{"name1": 'value1',"name3": 'value3'},{"name2": 'value2'}];
         var obj = Object.assign({}, ...arr);`,
+        code2: `['a','b','c'].reduce(function(result, item, index, array) {
+          result[index] = item; //a, b, c
+          return result;
+        }, {}) //watch out the empty {}, which is passed as "result"`,
       },
       {
         name: '',
@@ -144,7 +149,12 @@ const answers = [
         name: '',
         answerIndex: 19,
         link: '',
-        code: 'array.length'
+        code: 'array.length = 0'
+      },{
+        name: '',
+        answerIndex: 20,
+        link: 'https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object',
+        code: 'Object.keys(obj).length === 0 && obj.constructor === Object'
       }
     ]
   }
