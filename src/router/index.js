@@ -8,7 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'Index',
-      component: () => System.import('../components/index.vue'),
+      component: () => System.import('../components/Index.vue'),
     },
     {
       path: '/sliders',
