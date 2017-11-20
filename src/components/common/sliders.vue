@@ -8,7 +8,6 @@
     <div class="slider_list" :style="setStyle" @transitionend="onTransitionEnd">
       <div class="slider_item" v-for="(arr, index) in cloneSliderArr" :key="index" :style="{ backgroundImage: `url(${arr.img})` }"></div>
     </div>
-
     <div class="slider_pagination">
       <div class="slider_pagination_bullet" :class="{active: index + 1 === computeIndex}" 
       v-for="(arr, index) in bullets" :key="index"
