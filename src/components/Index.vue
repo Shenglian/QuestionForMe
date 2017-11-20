@@ -1,6 +1,7 @@
 <template>
   <div class="index">
     <HeadTop />
+    <Slider />
     <div class="main">
       <Questions />
     </div>
@@ -11,11 +12,13 @@
 
 import HeadTop from './common/header';
 import Questions from './Questions';
+import Slider from './common/sliders';
 
 export default {
   name: 'index',
   components: {
     HeadTop,
+    Slider,
     Questions,
   },
   data () {
