@@ -84,6 +84,10 @@ const questions = [
         name: 'How do I test for an empty JavaScript object?',
         answerIndex: 20,
       },
+      {
+        name: '查找一個JavaScript函數，解析查看每個參數的URL，然後添加新參數或更新值(如果已經存在)。',
+        answerIndex: 21,
+      },
     ]
   },
   {

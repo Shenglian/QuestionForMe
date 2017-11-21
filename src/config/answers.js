@@ -155,6 +155,12 @@ const answers = [
         answerIndex: 20,
         link: 'https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object',
         code: 'Object.keys(obj).length === 0 && obj.constructor === Object'
+      },
+      {
+        name: '',
+        answerIndex: 21,
+        link: 'https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object',
+        code: `let urlString = urlString.match(/[\?]/g) ? '&' : '?' + param=value`,
       }
     ]
   }
