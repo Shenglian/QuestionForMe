@@ -1,18 +1,24 @@
 <template>
   <!-- @wheel="onWheel"-->
+  <!-- @mousedown="onTouchStart" -->
   <div class="slider"
     @mouseover="clearTimerEvent"
     @mouseleave="addTimerEvent"
-    @touchstart="onTouchStart"
-    @mousedown="onTouchStart">
-    <div class="slider_list" :style="setStyle" @transitionend="onTransitionEnd">
-      <div class="slider_item" v-for="(arr, index) in cloneSliderArr" :key="index" :style="{ backgroundImage: `url(${arr.img})` }"></div>
+    @touchstart="onTouchStart">
+    <div class="slider_list" :style="setStyle" @transitionend="onTransitionend">
+      <div class="slider_item" v-for="(arr, index) in cloneSliderArr" :key="index" :style="{ backgroundImage: `url(${arr.img})` }">{{ index }}</div>
     </div>
     <div class="slider_pagination">
+      <div class="next" @click="setTimerNext">prev</div>
+
       <div class="slider_pagination_bullet" :class="{active: index + 1 === computeIndex}" 
       v-for="(arr, index) in bullets" :key="index"
       @click="goTo(index + 1)"></div>
+
+      <div class="next" @click="setTimerNext">next</div>
     </div>
+
+    
   </div>
 </template>
 
@@ -111,7 +117,7 @@
 
       getSlideList() {
         this.slides = this.$el.querySelectorAll('.slider .slider_item');
-        this.setTimer();
+        // this.setTimer();
       },
       getClientWidth() {
         this.clientWidth = this.slides ? this.slides[0].clientWidth : null;
@@ -121,7 +127,7 @@
         this.removeTimer();
       },
       addTimerEvent() {
-        this.setTimer();
+        // this.setTimer();
       },
 
       setTimer() {
@@ -132,19 +138,23 @@
       },
 
       setTimerNext() {
-        this.transitionDuration = 500;
         this.currentPage = this.currentPage + 1;
+        this.transitionDuration = 500;
+
         this.move(this.currentPage);
       },
 
-      onTransitionEnd() {
-        if (this.timer) {
-          if (this.currentPage === this.slides.length - 1) {
-            this.transitionDuration = 0;
-            this.currentPage = 1;
-            this.move(this.currentPage);
-          }
+      onTransitionend() {
+        if (this.currentPage === this.slides.length - 1) {
+          this.transitionDuration = 0;
+          this.currentPage = 1;
+          // 移到下一個執行緒在移動
+          setTimeout(this.abc, 0);
         }
+      },
+
+      abc (index) {
+        this.move(this.currentPage);
       },
 
       next() {
@@ -206,9 +216,9 @@
       },
 
       onTouchEnd() {
-        if (!this.timer) {
-          this.setTimer();
-        }
+        // if (!this.timer) {
+        //   this.setTimer();
+        // }
 
         const isQuickAction = new Date().getTime() - this.startTime < 1000;
 
@@ -243,6 +253,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  -webkit-user-drag: none;
 }
 
 .slider .slider_list {
