@@ -2,8 +2,6 @@
   <!-- @wheel="onWheel"-->
   <!-- @mousedown="onTouchStart" -->
   <div class="slider"
-    @mouseover="clearTimerEvent"
-    @mouseleave="addTimerEvent"
     @touchstart="onTouchStart">
     <div class="slider_list" :style="setStyle" @transitionend="onTransitionend">
       <div class="slider_item" v-for="(arr, index) in cloneSliderArr" :key="index" :style="{ backgroundImage: `url(${arr.img})` }">{{ index }}</div>
@@ -58,6 +56,10 @@
         delta: 0,
 
         timer: null,
+
+        excuteNextStatus: true,
+        excutePrevStatus: true,
+        directionStatus: 'next',
       };
     },
     watch: {},
@@ -107,6 +109,38 @@
       },
     },
     methods: {
+      defineVisibility() {
+        if (typeof document.hidden !== 'undefined') { // Opera 12.10 and Firefox 18 and later support 
+          this.hidden = 'hidden';
+          this.visibilityChange = 'visibilitychange';
+        } else if (typeof document.msHidden !== 'undefined') {
+          this.hidden = 'msHidden';
+          this.visibilityChange = 'msvisibilitychange';
+        } else if (typeof document.webkitHidden !== 'undefined') {
+          this.hidden = 'webkitHidden';
+          this.visibilityChange = 'webkitvisibilitychange';
+        }
+
+        this.detectBrowerVisibility();
+      },
+
+      detectBrowerVisibility() {
+        // Warn if the browser doesn't support addEventListener or the Page Visibility API
+        if (typeof document.addEventListener === 'undefined' || typeof document[this.hidden] === 'undefined') {
+          console.log('This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.');
+        } else {
+          // Handle page visibility change   
+          document.addEventListener(this.visibilityChange, this.handleVisibilityChange, false);
+        }
+      },
+
+      handleVisibilityChange() {
+        if (document[this.hidden]) {
+          this.removeTimer();
+        } else {
+          this.setTimer();
+        }
+      },
       slideInit() {
         this.$nextTick(() => {
           this.getSlideList();
@@ -138,36 +172,58 @@
       },
 
       setTimerNext() {
+        if (!this.excuteNextStatus) return;
+        this.directionStatus = 'next';
+
         this.currentPage = this.currentPage + 1;
         this.transitionDuration = 500;
-
         this.move(this.currentPage);
+
+        this.excuteNextStatus = false;
       },
 
       onTransitionend() {
-        if (this.currentPage === this.slides.length - 1) {
-          this.transitionDuration = 0;
-          this.currentPage = 1;
-          // 移到下一個執行緒在移動
-          setTimeout(this.abc, 0);
-        }
-      },
+        this.transitionDuration = 0;
 
-      abc (index) {
-        this.move(this.currentPage);
+        // Next
+        if (this.directionStatus === 'next' && this.currentPage === this.slides.length - 1) this.currentPage = 1;
+        
+        // Prev
+        if (this.currentPage === 0) this.currentPage = this.slides.length - 2;
+
+        // 移到下一個執行緒在移動
+        setTimeout(this.goTo, 0);
+
+        this.excuteNextStatus = true;
+        this.excutePrevStatus = true;
       },
 
       next() {
-        if (this.currentPage < this.slides.length - 1) this.currentPage = this.currentPage + 1;
+        if (!this.excuteNextStatus) return;
+        this.directionStatus = 'next';
+
+        this.currentPage = this.currentPage + 1;
+        this.transitionDuration = 500;
         this.move(this.currentPage);
+
+        this.excuteNextStatus = false;
       },
       prev() {
-        if (this.currentPage > 0) this.currentPage = this.currentPage - 1;
+        this.directionStatus = 'prev';
+
+        this.currentPage = this.currentPage - 1;
+        this.transitionDuration = 500;
         this.move(this.currentPage);
+
+        this.excutePrevStatus = false;
       },
       goTo(index) {
-        this.currentPage = index;
-        this.move(index);
+        if (index) {
+          this.currentPage = index;
+          this.move(index);
+        } else {
+          this.move(this.currentPage);
+        }
       },
       move(index) {
         this.translateX = -(index * this.clientWidth);
